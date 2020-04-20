@@ -267,12 +267,12 @@ public class InAppBrowser extends CordovaPlugin {
                 @SuppressLint("NewApi")
                 @Override
                 public void run() {
-                    if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O) {
+                    // if (android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.O) {
                         currentClient.waitForBeforeload = false;
                         inAppWebView.setWebViewClient(currentClient);
-                    } else {
-                        ((InAppBrowserClient)inAppWebView.getWebViewClient()).waitForBeforeload = false;
-                    }
+                    // } else {
+                    //     ((InAppBrowserClient)inAppWebView.getWebViewClient()).waitForBeforeload = false;
+                    // }
                     inAppWebView.loadUrl(url);
                 }
             });
@@ -1191,20 +1191,20 @@ public class InAppBrowser extends CordovaPlugin {
             return shouldOverrideUrlLoading(url, null);
         }
 
-        /**
-         * Override the URL that should be loaded
-         *
-         * New (added in API 24)
-         * For Android 7 and above.
-         *
-         * @param webView
-         * @param request
-         */
-        @TargetApi(Build.VERSION_CODES.N)
-        @Override
-        public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest request) {
-            return shouldOverrideUrlLoading(request.getUrl().toString(), request.getMethod());
-        }
+        // /**
+        //  * Override the URL that should be loaded
+        //  *
+        //  * New (added in API 24)
+        //  * For Android 7 and above.
+        //  *
+        //  * @param webView
+        //  * @param request
+        //  */
+        // @TargetApi(Build.VERSION_CODES.N)
+        // @Override
+        // public boolean shouldOverrideUrlLoading(WebView webView, WebResourceRequest request) {
+        //     return shouldOverrideUrlLoading(request.getUrl().toString(), request.getMethod());
+        // }
 
         /**
          * Override the URL that should be loaded
